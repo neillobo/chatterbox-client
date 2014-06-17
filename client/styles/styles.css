@@ -46,7 +46,7 @@ body {
     line-height: 13px;
 }
 
-form {
+/*form {
     padding: 20px;
     padding-left: 0;
     margin-bottom: 20px;
@@ -57,7 +57,7 @@ form input[type=text] {
     width: 70%;
     font-size: 12px;
     padding: 5px;
-}
+}*/
 
 .chat {
     padding: 5px;
@@ -82,3 +82,31 @@ form input[type=text] {
 .spinner img {
     padding: 10px;
 }
+
+#rooms {
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    /*background: #eee;*/
+    float: left;
+    width: 140px;
+}
+
+#input {
+    width: 400px;
+}
+
+
+#send {
+    display: block;
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form {
+    text-align: left;
+}
+
