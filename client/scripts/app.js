@@ -1,4 +1,14 @@
 // YOUR CODE HERE:
+//
+//  implement better init
+//  document read in this file?
+//  create room button
+//  maybe have all rooms persistent, don't need to delete rooms that fall out
+//    i.e. have app.rooms and add 'All Rooms' at beginning
+//  refactor to pass tests
+//
+//
+
 var app = {};
 app.rooms = {};
 app.friends = {};
@@ -33,12 +43,10 @@ app.printMessages = function(data, currentRoom) {
     var message = data.results[i];
     app.rooms[message.roomname] = true;
     if(currentRoom === message.roomname || (currentRoom === false || currentRoom === 'All Rooms')){
-        var li = $('<li></li>').append('<a class="users" href="#" value="'+_.escape(message.username)+'">'+_.escape(message.username) + '</a>: '+ _.escape(message.text));
-       if(app.friends[_.escape(message.username)]){
-        console.log("Friends");
+      var li = $('<li></li>').append('<a class="users" href="#" value="'+_.escape(message.username)+'">'+_.escape(message.username) + '</a>: '+ _.escape(message.text));
+      if(app.friends[_.escape(message.username)]){
         li = $('<strong></strong>').append(li);
-       } else {
-       }
+      }
       $('#chats').append(li);
     }
   }
