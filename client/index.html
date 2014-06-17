@@ -22,6 +22,7 @@
             'text' : $('#input').val(),
             'roomname' : 'HackReactor'
           };
+          $('#input').text = '';
           console.log(message);
           app.addMessage(message);
         });
@@ -29,14 +30,19 @@
         $('#rooms').on('change',function(){
             $("select option:selected").each(function() {
               console.log($(this).text());
+              app.currentRoom = $(this).text();
               app.fetch($(this).text());
 
             });
           });
 
-        app.fetch();
-      });
+        app.fetch()
+        setInterval(function(){
+          console.log("Fetching");
+          app.fetch(app.currentRoom);
 
+        },4000);
+      });
 
       var getQueryVariable = function(variable) {
         var query = window.location.search.substring(1);
@@ -50,10 +56,17 @@
     </script>
   </head>
   <body>
-    <div>
-      <p>Rooms</p>
-        <select id="rooms">
-        </select>
+     <div id="sidebar">
+      <div id="room-container">
+        <h2>Rooms</h2>
+          <select id="rooms">
+          </select>
+      </div>
+      <div id="friends-container">
+        <h2>Friends</h2>
+        <ul id="friends">
+        </ul>
+      </div>
     </div>
     <div id="main">
       <h1>chatterbox</h1>
