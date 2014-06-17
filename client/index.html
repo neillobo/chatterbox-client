@@ -26,6 +26,15 @@
           app.addMessage(message);
         });
 
+        $('#rooms').on('change',function(){
+            $("select option:selected").each(function() {
+              console.log($(this).text());
+              app.fetch($(this).text());
+
+            });
+          });
+
+        app.fetch();
       });
 
 
